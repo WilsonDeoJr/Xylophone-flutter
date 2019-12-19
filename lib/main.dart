@@ -10,186 +10,59 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$n.wav');
 }
+
+
+ Expanded play({Color color, int soundNumber, String note}){
+  return Expanded(
+    child: FlatButton(
+      child: Text(note,
+      style: TextStyle(
+        fontSize: 35,
+        color: Colors.white,
+      ),),
+
+      color: color,
+      onPressed: (){
+        sound(soundNumber);
+      },
+    ),
+  );
+
+}
+
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('XYLOPHONE'),
-          backgroundColor: Colors.grey,
+          title: Center(child: Text('XYLOPHONE')),
+          backgroundColor: Colors.black,
         ),
         backgroundColor: Colors.black,
 
-        body: Padding(
-
-          padding: const EdgeInsets.all(59.0),
-          child: Center(
+        body: Center(
             child: SafeArea(
 
               child: Center(
                child: Column(
+                 crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                     Padding(
-                       padding: const EdgeInsets.all(8.0),
-                       child: Container(
-                        width: 300.0,
-                         height: 50.0,
-                         child: FlatButton(
-                           child: Center(
-                             child: Text(
-                               'C',
-                                   style: TextStyle(
-                                     color: Colors.white,
-                                     fontSize: 30,
-                                   ),
-                             ),
-                           ),
-                           color: Colors.blue,
-                            onPressed: (){
-                            sound(1);
-                            },
-                          )
-                    ),
-                     ),
-                    Padding(
+                    play(color: Colors.red, soundNumber: 1, note: 'C'),
+                    play(color: Colors.green, soundNumber: 2, note: 'D'),
+                    play(color: Colors.blue, soundNumber: 3, note: 'E'),
+                    play(color: Colors.teal, soundNumber: 4, note: 'F'),
+                    play(color: Colors.deepOrange, soundNumber: 5, note: 'G'),
+                    play(color: Colors.yellow, soundNumber: 6, note: 'A'),
+                    play(color: Colors.lightBlueAccent, soundNumber: 7, note: 'B'),
 
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-
-                          child: FlatButton(
-                            child: Center(
-                              child: Text(
-                                'D',
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white
-                                ),
-                              ),
-                            ),
-                            color: Colors.green,
-                            onPressed: (){
-                              sound(2);
-                            },
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          child: FlatButton(
-                            child: Text(
-                              'E',
-                              style: TextStyle(
-                                fontSize: 35,
-                                color: Colors.white,
-                              ),
-                            ),
-                            color: Colors.red,
-                            onPressed: (){
-                              sound(3);
-                            },
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          child: FlatButton(
-                            child: Center(
-                              child: Text(
-                                'F',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 35,
-                                ),
-                              ),
-                            ),
-                            color: Colors.orange,
-                            onPressed: (){
-                              sound(4);
-                            },
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          child: FlatButton(
-                            child: Center(
-                              child: Text(
-                                'G',
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            color: Colors.pink,
-                            onPressed: (){
-                              sound(5);
-                            },
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          child: FlatButton(
-                            child: Center(
-                              child: Text(
-                                'A',
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            color: Colors.lightBlueAccent,
-                            onPressed: (){
-                              sound(6);
-                            },
-                          )
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          child: FlatButton(
-                            child: Center(
-                              child: Text(
-                                'B',
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white
-                                ),
-                              ),
-                            ),
-                            color: Colors.deepOrangeAccent,
-                            onPressed: (){
-                              sound(7);
-                            },
-                          )
-                      ),
-                    ),
                   ],
                 ),
 
               ),
             ),
           ),
-        ),
+
       ),
     );
   }
